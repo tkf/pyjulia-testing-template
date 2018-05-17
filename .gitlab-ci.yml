@@ -1,0 +1,35 @@
+# Official Julia image from https://hub.docker.com/_/julia/
+image: julia
+
+test:
+  stage: test
+  script:
+
+    # Install required libraries:
+    - time apt-get update
+    - time apt-get install -qq build-essential python3-pip
+    - pip3 install --upgrade tox
+    - tox --version
+    - time tox --recreate --notest
+
+    # Prepare & test:
+    - which julia
+    - time julia --color=yes -e 'Pkg.add("PyCall")'
+    - make test-full
+
+# Since caching outside repository is impossible
+# (https://gitlab.com/gitlab-org/gitlab-ce/issues/4431), I'm using
+# $PWD/.julia instead of ~/.julia.  It can be done by JULIA_PKGDIR.
+#
+# Julia document on JULIA_PKGDIR:
+# https://docs.julialang.org/en/stable/manual/environment-variables/#JULIA_PKGDIR-1
+variables:
+  JULIA_PKGDIR: "$CI_PROJECT_DIR/.julia"
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.pip"
+  TOXENV: py
+
+cache:
+  key: "$CI_JOB_NAME"
+  paths:
+    - .julia
+    - .pip
