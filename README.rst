@@ -1,7 +1,7 @@
 Tested testing template for pyjulia-based projects
 ==================================================
 
-|build-status|
+|travis-status| |appveyor-status|
 
 This template tries to solve the following problem:
 
@@ -82,7 +82,12 @@ use::
 
 .. --- Links ---
 
-.. |build-status|
+.. |travis-status|
    image:: https://secure.travis-ci.org/tkf/pyjulia-testing-template.png?branch=master
    :target: http://travis-ci.org/tkf/pyjulia-testing-template
-   :alt: Build Status
+   :alt: Travis Build Status
+
+.. |appveyor-status|
+   image:: https://ci.appveyor.com/api/projects/status/x8ajrbq47llt595j?svg=true
+   :target: https://ci.appveyor.com/project/tkf/pyjulia-testing-template
+   :alt: AppVeyor Build Status
