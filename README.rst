@@ -94,5 +94,5 @@ use::
 
 .. |gitlab-status|
    image:: https://gitlab.com/tkfpub/pyjulia-testing-template/badges/master/build.svg
-   :target: https://gitlab.com/tkfpub/pyjulia-testing-template
+   :target: https://gitlab.com/tkfpub/pyjulia-testing-template/pipelines
    :alt: GitLab Build Status
