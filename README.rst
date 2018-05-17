@@ -62,6 +62,15 @@ To run tests with pyjuila, set environment variable `TEST_PYJUILA` to
   TEST_PYJULIA=yes tox
   make test-tox TEST_PYJULIA=yes  # (more-or-less) equivalent
 
+Note that `make test-tox` sets up `SSL_CERT_FILE` in addition to the
+`tox` version.  This may be useful when you have "error initializing
+LibGit2 module" (see also: `JuliaLang/julia#18693`_,
+`JuliaDiffEq/diffeqpy#13`_)
+
+.. _`JuliaLang/julia#18693`: https://github.com/JuliaLang/julia/issues/18693
+.. _`JuliaDiffEq/diffeqpy#13`: https://github.com/JuliaDiffEq/diffeqpy/pull/13/commits/850441ee63962a2417de2bce6f6223052ee9cceb
+
+
 Faster way to test Python-Julia integration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
