@@ -21,7 +21,7 @@ before_install:
 
   - export PATH="$HOME/julia/bin:$PATH"
 
-  - julia --color=yes -e 'Pkg.add("PyCall")'
+  - julia --color=yes ci/prepare.jl
 
   - pip install --quiet tox
 script:

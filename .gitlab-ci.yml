@@ -14,7 +14,7 @@ test:
 
     # Prepare & test:
     - which julia
-    - time julia --color=yes -e 'Pkg.add("PyCall")'
+    - time julia --color=yes ci/prepare.jl
     - make test-full
 
 # Since caching outside repository is impossible

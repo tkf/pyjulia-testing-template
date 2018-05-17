@@ -38,7 +38,7 @@ install:
   - set PATH=C:\projects\julia\bin;%PATH%
 
 # Install Julia packages
-  - julia --color=yes -e "Pkg.add(\"PyCall\")"
+  - julia --color=yes ci/prepare.jl
 
 # Install Python packages
   - "%PYTHON%\\python.exe -m pip install --quiet tox"
