@@ -23,4 +23,4 @@ before_install:
 
   - pip install --quiet tox-travis
 script:
-  - tox
+  - make test-full

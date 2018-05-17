@@ -15,3 +15,6 @@ test-notox:
 
 test-tox:
 	$(TOX) -- $(PYTEST_OPTS)
+
+test-full:
+	$(MAKE) test-tox TEST_PYJULIA=yes
