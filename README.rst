@@ -1,6 +1,8 @@
 Tested testing template for pyjulia-based projects
 ==================================================
 
+|build-status|
+
 This template tries to solve the following problem:
 
 * Setting up test suite/CI for pyjulia-based project is hard.
@@ -67,3 +69,11 @@ To run tests with pyjulia without `Pkg.build("PyCall")` overhead,
 use::
 
   make test-notox TEST_PYJULIA=yes
+
+
+.. --- Links ---
+
+.. |build-status|
+   image:: https://secure.travis-ci.org/tkf/pyjulia-testing-template.png?branch=master
+   :target: http://travis-ci.org/tkf/pyjulia-testing-template
+   :alt: Build Status
