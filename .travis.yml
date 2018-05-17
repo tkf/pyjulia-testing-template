@@ -7,8 +7,6 @@ python:
 env:
   TOXENV=py
 matrix:
-  allow_failures:
-    - os:  osx
   include:
     - os: osx
       language: generic
