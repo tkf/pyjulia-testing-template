@@ -17,7 +17,7 @@ Writing tests
 
 This template uses pytest fixture for setting up pyjulia's
 `julia.Julia` instance.  For the tests requiring pyjulia setup, use
-`julia` fixture (defined in `./conftest.py`).  Example:
+`julia` fixture (defined in `conftest.py`).  Example:
 
 .. code:: python
 
