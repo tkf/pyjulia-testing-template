@@ -11,10 +11,21 @@ environment:
     # The list here is complete (excluding Python 2.6, which
     # isn't covered by this document) at the time of writing.
 
+    # 64 julia-0.6 Python-27
     - PYTHONDIR: "C:\\Python27-x64"
       JULIA_URL: "https://julialang-s3.julialang.org/bin/winnt/x64/0.6/julia-0.6-latest-win64.exe"
+
+    # 32 julia-0.6 Python-27
+    - PYTHONDIR: "C:\\Python27"
+      JULIA_URL: "https://julialang-s3.julialang.org/bin/winnt/x86/0.6/julia-0.6-latest-win32.exe"
+
+    # 64 julia-0.6 Python-36
     - PYTHONDIR: "C:\\Python36-x64"
       JULIA_URL: "https://julialang-s3.julialang.org/bin/winnt/x64/0.6/julia-0.6-latest-win64.exe"
+
+    # 32 julia-0.6 Python-36
+    - PYTHONDIR: "C:\\Python36"
+      JULIA_URL: "https://julialang-s3.julialang.org/bin/winnt/x86/0.6/julia-0.6-latest-win32.exe"
 
 matrix:
   allow_failures:
