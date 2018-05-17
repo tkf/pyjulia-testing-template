@@ -1,7 +1,7 @@
 Tested testing template for pyjulia-based projects
 ==================================================
 
-|travis-status| |appveyor-status|
+|travis-status| |appveyor-status| |gitlab-status|
 
 This template tries to solve the following problem:
 
@@ -91,3 +91,8 @@ use::
    image:: https://ci.appveyor.com/api/projects/status/x8ajrbq47llt595j?svg=true
    :target: https://ci.appveyor.com/project/tkf/pyjulia-testing-template
    :alt: AppVeyor Build Status
+
+.. |gitlab-status|
+   image:: https://gitlab.com/tkfpub/pyjulia-testing-template/badges/master/build.svg
+   :target: https://gitlab.com/tkfpub/pyjulia-testing-template
+   :alt: GitLab Build Status
