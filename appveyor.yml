@@ -11,14 +11,14 @@ environment:
     # The list here is complete (excluding Python 2.6, which
     # isn't covered by this document) at the time of writing.
 
-    - PYTHON: "C:\\Python27-x64"
+    - PYTHONDIR: "C:\\Python27-x64"
       JULIA_URL: "https://julialang-s3.julialang.org/bin/winnt/x64/0.6/julia-0.6-latest-win64.exe"
-    - PYTHON: "C:\\Python36-x64"
+    - PYTHONDIR: "C:\\Python36-x64"
       JULIA_URL: "https://julialang-s3.julialang.org/bin/winnt/x64/0.6/julia-0.6-latest-win64.exe"
 
 matrix:
   allow_failures:
-    - PYTHON: "C:\\Python27-x64"
+    - PYTHONDIR: "C:\\Python27-x64"
 
 notifications:
   - provider: Email
@@ -37,18 +37,21 @@ install:
   - C:\projects\julia-binary.exe /S /D=C:\projects\julia
   - set PATH=C:\projects\julia\bin;%PATH%
 
+# Setup PYTHON environment variable (https://github.com/JuliaPy/PyCall.jl)
+  - "SET PYTHON=%PYTHONDIR%\\python.exe"
+
 # Install Julia packages
   - julia --color=yes ci/prepare.jl
 
 # Install Python packages
-  - "%PYTHON%\\python.exe -m pip install --quiet tox"
+  - "%PYTHONDIR%\\python.exe -m pip install --quiet tox"
 
 build_script:
   # Empty so that it doesn't think it needs Visual Studio?
   - echo 'test'
 
 test_script:
-  - "%PYTHON%\\scripts\\tox"
+  - "%PYTHONDIR%\\scripts\\tox"
 
 artifacts:
   # bdist_wheel puts your built wheel in the dist directory
