@@ -12,7 +12,7 @@ matrix:
   include:
     - os: osx
       language: generic
-      env: TOXENV=py
+      env: TOXENV=py BREW_PYTHON=python@2
     - os: osx
       language: generic
       env: TOXENV=py BREW_PYTHON=python
