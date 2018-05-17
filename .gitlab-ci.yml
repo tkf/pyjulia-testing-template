@@ -1,14 +1,15 @@
 # Official Julia image from https://hub.docker.com/_/julia/
 image: julia
 
-test:
+.test_template: &test_base
   stage: test
   script:
 
     # Install required libraries:
     - time apt-get update
-    - time apt-get install -qq build-essential python3-pip
-    - pip3 install --upgrade tox
+    - time apt-get install -qq build-essential $SYSTEM_PACKAGES
+    - which $PIP
+    - $PIP install --upgrade tox
     - tox --version
     - time tox --recreate --notest
 
@@ -16,6 +17,18 @@ test:
     - which julia
     - time julia --color=yes ci/prepare.jl
     - make test-full
+
+test-py3:
+  <<: *test_base
+  variables:
+    PIP: pip3
+    SYSTEM_PACKAGES: python3-pip
+
+test-py2:
+  <<: *test_base
+  variables:
+    PIP: pip2
+    SYSTEM_PACKAGES: python-pip
 
 # Since caching outside repository is impossible
 # (https://gitlab.com/gitlab-org/gitlab-ce/issues/4431), I'm using
