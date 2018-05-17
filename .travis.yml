@@ -4,6 +4,18 @@ os:
 python:
     - "2.7"
     - "3.6"
+env:
+  TOXENV=py
+matrix:
+  allow_failures:
+    - os:  osx
+  include:
+    - os: osx
+      language: generic
+      env: TOXENV=py
+    - os: osx
+      language: generic
+      env: TOXENV=py BREW_PYTHON=python
 notifications:
   email: false
 before_install:
@@ -13,6 +25,6 @@ before_install:
 
   - julia --color=yes -e 'Pkg.add("PyCall")'
 
-  - pip install --quiet tox-travis
+  - pip install --quiet tox
 script:
   - make test-full

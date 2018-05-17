@@ -17,6 +17,21 @@ then
     hdiutil attach ~/Downloads/julia.dmg
     cp -r /Volumes/Julia*/Julia*/Contents/Resources/julia $HOME/julia
     hdiutil detach -force /Volumes/Julia*
+
+    if [ -n "$BREW_PYTHON" ]
+    then
+        brew update
+        brew install "$BREW_PYTHON"
+        if [ "$BREW_PYTHON" = python -a -e /usr/local/bin/pip3 ]
+        then
+            ln -fs pip3 /usr/local/bin/pip
+        fi
+        which pip
+        pip --version
+    fi
+    # https://github.com/tox-dev/tox/blob/master/.travis-osx
+    # https://docs.brew.sh/Homebrew-and-Python
+
 fi
 
 rm -rf ~/Downloads/julia*
