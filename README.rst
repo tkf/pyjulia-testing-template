@@ -43,9 +43,12 @@ test suite but can quickly run the tests without pyjulia dependency.
 Running tests
 -------------
 
-This template provides a few modes for running tests::
+This template provides three modes for running tests::
 
-  make test-{tox,notox} [TEST_PYJULIA=yes] [PYTEST_OPTS=...]
+  make test-tox                     # tests without Julia and multiple Python interpreters/environments
+  make test-tox TEST_PYJULIA=yes    # tests with Julia with and multiple Python interpreters/environments
+  make test-notox TEST_PYJULIA=yes  # tests with Julia and default Python
+
 
 Pure Python unit tests
 ^^^^^^^^^^^^^^^^^^^^^^
